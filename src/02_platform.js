@@ -9,7 +9,7 @@ const GameObject = require("./01_game_object");
 const DEFAULT = {
   width: 80,
   height: 3,
-  color: "white",
+  color: "white"
 };
 
 function Platform(options) {
