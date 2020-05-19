@@ -16,7 +16,7 @@ function GameObject(options) {
   this.color = options.color // ex. "#00FF00"
 }
 
-GameObject.prototype.drawRec = function (ctx) {
+GameObject.prototype.drawRec = function(ctx) {
   ctx.fillStyle = this.color;
   ctx.beginPath();
 
@@ -25,7 +25,7 @@ GameObject.prototype.drawRec = function (ctx) {
   ctx.fill();
 };
 
-GameObject.prototype.drawCir = function (ctx) {
+GameObject.prototype.drawCir = function(ctx) {
   ctx.fillStyle = this.color;
   ctx.beginPath();
 
