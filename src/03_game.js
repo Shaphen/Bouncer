@@ -1,7 +1,7 @@
 const Platform = require("./02_platform");
 
 function Game() {
-  this.DIM_X = 500;
+  this.DIM_X = 350;
   this.DIM_Y = 250;
   this.NUM_PLATFORMS = 10;
 
@@ -42,14 +42,9 @@ Game.prototype.moveObjects = function moveObjects() {
 
 Game.prototype.wrap = function(pos) { // refactor/add reverse after successful wrap
   if (pos[0] > this.DIM_X) {
-    pos[0] = pos[0] % this.DIM_X;
-  } else if (pos[0] < 0) {
+    pos[0] = (pos[0] % this.DIM_X) - 80;
+  } else if (pos[0] < -80) {
     pos[0] = this.DIM_X
-  }
-  if (pos[1] > this.DIM_Y) {
-    pos[1] = pos[1] % this.DIM_Y;
-  } else if (pos[1] < 0) {
-    pos[1] = this.DIM_Y
   }
 
   return pos;
