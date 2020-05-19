@@ -39,8 +39,11 @@ GameObject.prototype.move = function() {
   let pos = [];
   pos.push(this.pos[0] + this.vel[0]);
   pos.push(this.pos[1] + this.vel[1]);
-  let newPos = this.game.wrap(pos)
-  this.pos = newPos;
+  this.pos = pos;
+
+  let newVel = this.game.reverse(pos, this.vel)
+  console.log(newVel)
+  this.vel = newVel;
 }
 
 module.exports = GameObject;
