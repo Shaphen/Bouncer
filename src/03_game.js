@@ -1,7 +1,7 @@
 
 function Game() {
-  this.DIM_X = 250;
-  this.DIM_Y = 175;
+  this.DIM_X = 500;
+  this.DIM_Y = 250;
   this.NUM_PLATFORMS = 10;
 
   this.platforms = [];
@@ -36,6 +36,19 @@ Game.prototype.moveObjects = function moveObjects() {
   this.platforms.forEach(function(pf){
     pf.move();
   });
+}
+
+Game.prototype.wrap = function(pos) { // refactor/add reverse after successful wrap
+  if (pos[0] > this.DIM_X) {
+    pos[0] = pos[0] % this.DIM_X;
+  } else if (pos[0] < 0) {
+    pos[0] = this.DIM_X
+  }
+  if (pos[1] > this.DIM_Y) {
+    pos[1] = pos[1] % this.DIM_Y;
+  } else if (pos[1] < 0) {
+    pos[1] = this.DIM_Y
+  }
 }
 
 module.exports = Game;
