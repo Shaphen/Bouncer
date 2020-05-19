@@ -3,14 +3,14 @@ const Platform = require("./02_platform");
 function Game() {
   this.DIM_X = 350;
   this.DIM_Y = 250;
-  this.NUM_PLATFORMS = 10;
+  this.NUM_PLATFORMS = 3;
 
   this.platforms = [];
   this.addPlatforms();
 }
 
 Game.prototype.randomPos = function() {
-  return [this.DIM_X * Math.random(), this.DIM_Y * Math.random()];
+  return [(this.DIM_X/2) * Math.random(), (this.DIM_Y/2) * Math.random()];
 }
 
 Game.prototype.randomNum = function(min, max) {

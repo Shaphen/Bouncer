@@ -42,7 +42,6 @@ GameObject.prototype.move = function() {
   this.pos = pos;
 
   let newVel = this.game.reverse(pos, this.vel)
-  console.log(newVel)
   this.vel = newVel;
 }
 
