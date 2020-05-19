@@ -1,10 +1,10 @@
 // test code
 // let mo = new MovingObject({
 //   pos: [30, 30],
-//   vel: [10, 0],
+//   vel: [10, 10],
 //   width: 100,
-//   height: 5,
-//   color: "black",
+//   height: 3,
+//   color: "white",
 // });
 
 function MovingObject(options) {
