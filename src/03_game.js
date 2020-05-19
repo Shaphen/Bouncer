@@ -1,3 +1,4 @@
+const Platform = require("./02_platform");
 
 function Game() {
   this.DIM_X = 500;
@@ -20,7 +21,8 @@ Game.prototype.addPlatforms = function() {
   for (let i = 0; i < this.NUM_PLATFORMS; i++) {
     this.platforms.push(new Platform({
       pos: this.randomPos(),
-      vel: [this.randomNum(-3, 3), 0]
+      vel: [this.randomNum(-3, 3), 0],
+      game: this
     }));
   }
 }
@@ -49,6 +51,8 @@ Game.prototype.wrap = function(pos) { // refactor/add reverse after successful w
   } else if (pos[1] < 0) {
     pos[1] = this.DIM_Y
   }
+
+  return pos;
 }
 
 module.exports = Game;

@@ -10,10 +10,11 @@
 function GameObject(options) {
   this.pos = options.pos; // ex. [30, 30]
   this.vel = options.vel; // ex. [10, 10]
-  this.rad = options.rad
+  this.rad = options.rad; // ex. 10
   this.width = options.width; // ex. 5
   this.height = options.height; // ex. 5
-  this.color = options.color // ex. "#00FF00"
+  this.color = options.color; // ex. "#00FF00"
+  this.game = options.game;
 }
 
 GameObject.prototype.drawRec = function(ctx) {
@@ -34,10 +35,11 @@ GameObject.prototype.drawCir = function(ctx) {
   ctx.fill();
 };
 
-GameObject.prototype.move = function(ctx) {
-  let newPos = [];
-  newPos.push(this.pos[0] + this.vel[0]);
-  newPos.push(this.pos[1] + this.vel[1]);
+GameObject.prototype.move = function() {
+  let pos = [];
+  pos.push(this.pos[0] + this.vel[0]);
+  pos.push(this.pos[1] + this.vel[1]);
+  let newPos = this.game.wrap(pos)
   this.pos = newPos;
 }
 
