@@ -2,8 +2,7 @@ const Util = require("./00_utils");
 const GameObject = require("./01_game_object");
 
 // player = new Player({
-//   pos: [30, 30],
-//   vel: [10, 10],
+//   vel: [-10, 0]
 // });
 
 const DEFAULT = {

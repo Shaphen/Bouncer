@@ -3,7 +3,7 @@ const GameObject = require("./01_game_object");
 
 // platform = new Platform({
 //   pos: [30, 30],
-//   vel: [10, 10],
+//   vel: [10, 10]
 // });
 
 const DEFAULT = {

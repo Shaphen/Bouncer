@@ -5,6 +5,8 @@ const Platform = require("./02_platform");
 window.Platform = Platform;
 const Player = require("./02_player");
 window.Player = Player
+const Game = require("./03_game.");
+window.Game = Game;
 
 window.addEventListener("DOMContentLoaded", () => {
   let canvas = document.getElementById("game-canvas");
