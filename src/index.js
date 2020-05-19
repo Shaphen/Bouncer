@@ -1,6 +1,6 @@
 console.log("webpack is working!")
-const MovingObject = require("./01_moving_object");
-window.MovingObject = MovingObject;
+const GameObject = require("./01_game_object");
+window.GameObject = GameObject;
 
 
 window.addEventListener("DOMContentLoaded", () => {
