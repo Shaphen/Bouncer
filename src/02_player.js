@@ -14,6 +14,7 @@ const DEFAULT = {
 function Player(options) {
   options.pos = options.pos || DEFAULT.pos
   options.rad = options.rad || DEFAULT.rad;
+  options.vel = options.vel || [0, 0];
   options.color = options.color ||  DEFAULT.color;
   GameObject.call(this, options);
 }

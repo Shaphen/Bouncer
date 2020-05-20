@@ -45,4 +45,8 @@ GameObject.prototype.move = function() {
   this.vel = newVel;
 }
 
+GameObject.prototype.isCollidedWith = function(otherObject) {
+  
+}
+
 module.exports = GameObject;

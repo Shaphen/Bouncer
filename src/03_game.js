@@ -1,4 +1,5 @@
 const Platform = require("./02_platform");
+const Player = require("./02_player");
 
 function Game() {
   this.DIM_X = 350;
@@ -7,6 +8,9 @@ function Game() {
 
   this.platforms = [];
   this.addPlatforms();
+  this.player = new Player({
+    game: this
+  });
 }
 
 Game.prototype.randomPos = function() {
@@ -35,12 +39,20 @@ Game.prototype.addPlatforms = function() {
     }));
   }
 }
+
+// Game.prototype.addPlayer = function() {
+//   const player = new Player({
+//     game: this
+//   });
+//   this.players.push(player)
+// }
   
 Game.prototype.draw = function(ctx) {
   ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
   this.platforms.forEach(pf => {
     pf.drawRec(ctx);
   });
+  this.player.drawCir(ctx);
 }
 
 Game.prototype.moveObjects = function moveObjects() {
