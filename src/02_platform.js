@@ -6,6 +6,10 @@ const GameObject = require("./01_game_object");
 //   vel: [10, 10]
 // });
 
+Platform.prototype.randomNum = function (min, max) {
+  return Math.floor(Math.random() * (50) - 0)
+}
+
 const DEFAULT = {
   width: 150,
   height: 5,
