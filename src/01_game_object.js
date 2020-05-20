@@ -1,11 +1,3 @@
-// test code
-// let mo = new GameObject({
-//   pos: [30, 30],
-//   vel: [10, 10],
-//   width: 100,
-//   height: 3,
-//   color: "white",
-// });
 
 function GameObject(options) {
   this.pos = options.pos; // ex. [30, 30]
@@ -41,8 +33,8 @@ GameObject.prototype.move = function() {
   pos.push(this.pos[1] + this.vel[1]);
   this.pos = pos;
 
-  let newVel = this.game.wrap(pos)
-  this.pos = newVel;
+  let newPos = this.game.wrap(pos)
+  this.pos = newPos;
 }
 
 GameObject.prototype.isCollidedWith = function(otherObject) {

@@ -6,24 +6,30 @@ const GameObject = require("./01_game_object");
 // });
 
 const DEFAULT = {
-  pos: [220, 480],
+  pos: [220, 470],
   rad: 20,
   color: "white"
 };
 
 function Player(options) {
+  this.DIM_X = 450;
   options.pos = options.pos || DEFAULT.pos
   options.rad = options.rad || DEFAULT.rad;
   options.vel = options.vel || [0, 0];
   options.color = options.color ||  DEFAULT.color;
+  this.game = options.game
   GameObject.call(this, options);
 }
 
 Util.inherits(GameObject, Player);
 
-Player.prototype.move = function(newPos) {
-  this.pos[0] = this.pos[0] + newPos[0];
-  this.pos[1] = this.pos[1] + newPos[1];
+Player.prototype.move = function(pos) {
+  let newPos = []
+  newPos.push(this.pos[0] + pos[0]);
+  newPos.push(this.pos[1] + pos[1]);
+
+  finalPos = this.game.wrap(newPos, this.DIM_X)
+  this.pos = finalPos
 }
 
 module.exports = Player;

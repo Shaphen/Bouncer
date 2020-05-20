@@ -34,7 +34,7 @@ Game.prototype.addPlatforms = function() {
   for (let i = 0; i < this.NUM_PLATFORMS; i++) {
     this.platforms.push(new Platform({
       pos: this.randomPos(),
-      vel: [this.randomNum(-1.5, 1.5), 0],
+      vel: [0, this.randomNum(1.5, 2.5)],
       game: this
     }));
   }
@@ -62,10 +62,10 @@ Game.prototype.moveObjects = function moveObjects() {
 }
 
 Game.prototype.wrap = function(pos) {
-  if (pos[0] > this.DIM_X) {
-    pos[0] = (pos[0] % this.DIM_X - 200);
-  } else if (pos[0] < -200) {
-    pos[0] = this.DIM_X
+  if (pos[0] > this.DIM_X + 20) {
+    pos[0] = (pos[0] % this.DIM_X) - 80;
+  } else if (pos[0] < -50) {
+    pos[0] = this.DIM_X + 50
   }
   return pos;
 }
