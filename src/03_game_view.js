@@ -11,6 +11,11 @@ GameView.prototype.start = function start() {
     this.bindKeyHandlers();
   }
   setInterval(animate, 20)
+
+  const create = () => {
+    this.game.addPlatforms();
+  }
+  setInterval(create, 3000)
 }
 
 GameView.prototype.bindKeyHandlers = function() {

@@ -4,7 +4,7 @@ const Player = require("./02_player");
 function Game() {
   this.DIM_X = 450;
   this.DIM_Y = 500;
-  this.NUM_PLATFORMS = 3;
+  this.NUM_PLATFORMS = 1;
 
   this.platforms = [];
   this.addPlatforms();
@@ -14,7 +14,8 @@ function Game() {
 }
 
 Game.prototype.randomPos = function() {
-  return [(this.DIM_X/2) * Math.random(), (this.DIM_Y) * Math.random()];
+  // return [(this.DIM_X / 2) * Math.random(), (this.DIM_Y) * Math.random()];
+  return [(this.DIM_X) * Math.random(), -10];
 }
 
 Game.prototype.randomNum = function(min, max) {
