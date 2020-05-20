@@ -32,9 +32,6 @@ GameObject.prototype.move = function() {
   pos.push(this.pos[0] + this.vel[0]);
   pos.push(this.pos[1] + this.vel[1]);
   this.pos = pos;
-
-  let newPos = this.game.wrap(pos)
-  this.pos = newPos;
 }
 
 GameObject.prototype.isCollidedWith = function(otherObject) {

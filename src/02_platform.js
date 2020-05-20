@@ -7,7 +7,7 @@ const GameObject = require("./01_game_object");
 // });
 
 const DEFAULT = {
-  width: 200,
+  width: 150,
   height: 5,
   color: "white"
 };

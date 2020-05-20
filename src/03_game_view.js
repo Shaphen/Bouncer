@@ -15,12 +15,12 @@ GameView.prototype.start = function start() {
   const create = () => {
     this.game.addPlatforms();
   }
-  setInterval(create, 3000)
+  setInterval(create, 750)
 }
 
 GameView.prototype.bindKeyHandlers = function() {
-  if (key.isPressed("left")) { this.game.player.move([-3, 0]) };
-  if (key.isPressed("right")) { this.game.player.move([3, 0]) };
+  if (key.isPressed("left")) { this.game.player.move([-7, 0]) };
+  if (key.isPressed("right")) { this.game.player.move([7, 0]) };
 }
 
 module.exports = GameView;
