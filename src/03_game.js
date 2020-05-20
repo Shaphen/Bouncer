@@ -63,8 +63,8 @@ Game.prototype.moveObjects = function moveObjects() {
 
 Game.prototype.wrap = function(pos) {
   if (pos[0] > this.DIM_X) {
-    pos[0] = (pos[0] % this.DIM_X - 100);
-  } else if (pos[0] < -100) {
+    pos[0] = (pos[0] % this.DIM_X - 200);
+  } else if (pos[0] < -200) {
     pos[0] = this.DIM_X
   }
   return pos;

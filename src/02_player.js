@@ -22,8 +22,8 @@ function Player(options) {
 Util.inherits(GameObject, Player);
 
 Player.prototype.move = function(newPos) {
-  this.pos[0] = newPos[0];
-  this.pos[1] = newPos[1];
+  this.pos[0] = this.pos[0] + newPos[0];
+  this.pos[1] = this.pos[1] + newPos[1];
 }
 
 module.exports = Player;

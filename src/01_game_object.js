@@ -41,8 +41,8 @@ GameObject.prototype.move = function() {
   pos.push(this.pos[1] + this.vel[1]);
   this.pos = pos;
 
-  let newVel = this.game.reverse(pos, this.vel)
-  this.vel = newVel;
+  let newVel = this.game.wrap(pos)
+  this.pos = newVel;
 }
 
 GameObject.prototype.isCollidedWith = function(otherObject) {
