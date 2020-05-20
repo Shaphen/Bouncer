@@ -6,8 +6,8 @@ const GameObject = require("./01_game_object");
 // });
 
 const DEFAULT = {
-  pos: [145, 140],
-  rad: 10,
+  pos: [220, 480],
+  rad: 20,
   color: "white"
 };
 
@@ -20,5 +20,10 @@ function Player(options) {
 }
 
 Util.inherits(GameObject, Player);
+
+Player.prototype.move = function(newPos) {
+  this.pos[0] = newPos[0];
+  this.pos[1] = newPos[1];
+}
 
 module.exports = Player;

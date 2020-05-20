@@ -14,7 +14,7 @@ function Game() {
 }
 
 Game.prototype.randomPos = function() {
-  return [(this.DIM_X/2) * Math.random(), (this.DIM_Y/2) * Math.random()];
+  return [(this.DIM_X/2) * Math.random(), (this.DIM_Y*1.8) * Math.random()];
 }
 
 Game.prototype.randomNum = function(min, max) {
@@ -71,7 +71,7 @@ Game.prototype.wrap = function(pos) {
 }
 
 Game.prototype.reverse = function (pos, vel) {
-  if (pos[0] > (this.DIM_X - 150) || pos[0] < 0) {
+  if (pos[0] > (this.DIM_X - 100) || pos[0] < 0) {
     vel = this.otherVel(vel)
   }
   return vel;

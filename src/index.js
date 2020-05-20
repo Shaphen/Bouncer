@@ -1,4 +1,3 @@
-console.log("webpack is working!")
 const GameObject = require("./01_game_object");
 window.GameObject = GameObject;
 const Platform = require("./02_platform");
