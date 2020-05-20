@@ -34,6 +34,7 @@ Game.prototype.otherVel = function(vel) {
 Game.prototype.addPlatforms = function() {
   for (let i = 0; i < this.NUM_PLATFORMS; i++) {
     this.platforms.push(new Platform({
+      width: Math.floor(Math.random() * (200-80) + 80),
       pos: this.randomPos(),
       vel: [0, this.randomNum(2.5, 3.5)],
       game: this
