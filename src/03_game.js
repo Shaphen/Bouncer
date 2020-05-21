@@ -61,7 +61,7 @@ Game.prototype.wrap = function(pos) {
   if (pos[0] > this.DIM_X + 20) {
     pos[0] = (pos[0] % this.DIM_X) - 40;
   } else if (pos[0] < -20) {
-    pos[0] = this.DIM_X + 20
+    pos[0] = this.DIM_X + 20;
   }
   return pos;
 }
@@ -74,11 +74,18 @@ Game.prototype.wrap = function(pos) {
 // }
 
 Game.prototype.allObjects = function() {
-  return [].concat(this.platforms, this.player)
+  return [].concat(this.platforms, this.player);
 }
 
 Game.prototype.checkCollisions = function() {
-  
+  let allObj = this.allObjects();
+  for (let i = 0; i < allObj.length-1; i++) {
+    let player = allObj[allObj.length - 1]
+    if (allObj[i].isCollidedWith(player)) {
+      alert("collision!")
+      
+    }
+  }
 }
 
 Game.prototype.step = function() {

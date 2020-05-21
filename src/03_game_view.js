@@ -6,17 +6,17 @@ function GameView(game, ctx) {
 
 GameView.prototype.start = function start() {
   const animate = () => {
-    this.game.moveObjects()
-    // this.game.step(); after working collision detection
-    this.game.draw(this.ctx)
+    // this.game.moveObjects();
+    this.game.step();
+    this.game.draw(this.ctx);
     this.bindKeyHandlers();
   }
-  setInterval(animate, 20)
+  setInterval(animate, 20);
 
   const create = () => {
     this.game.addPlatforms();
   }
-  setInterval(create, 750)
+  setInterval(create, 750);
 }
 
 GameView.prototype.bindKeyHandlers = function() {
