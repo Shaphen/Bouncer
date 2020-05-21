@@ -7,7 +7,7 @@ const GameObject = require("./01_game_object");
 
 const DEFAULT = {
   pos: [220, 450],
-  rad: 20,
+  rad: 16,
   color: "white"
 };
 

@@ -10,8 +10,10 @@ function GameObject(options) {
 }
 
 GameObject.prototype.drawRec = function(ctx) {
-  ctx.fillStyle = this.color;
   ctx.beginPath();
+  ctx.fillStyle = "#DC1C13";
+  ctx.shadowColor = "red";
+  ctx.shadowBlur = 10
 
   ctx.rect(this.pos[0], this.pos[1], this.width, this.height);
 
@@ -19,12 +21,16 @@ GameObject.prototype.drawRec = function(ctx) {
 };
 
 GameObject.prototype.drawCir = function(ctx) {
-  ctx.fillStyle = this.color;
   ctx.beginPath();
+  ctx.fillStyle = this.color;
+  ctx.strokeStyle = "blue";
+  ctx.lineWidth = 4;
+  ctx.shadowColor = "blue";
+  ctx.shadowBlur = 10;
 
   ctx.arc(this.pos[0], this.pos[1], this.rad, 0, 2*Math.PI, false);
 
-  ctx.fill();
+  ctx.stroke();
 };
 
 GameObject.prototype.move = function() {

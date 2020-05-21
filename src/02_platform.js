@@ -2,8 +2,8 @@ const Util = require("./00_utils");
 const GameObject = require("./01_game_object");
 
 const DEFAULT = {
-  height: 5,
-  color: "white"
+  height: 7,
+  color: "green"
 };
 
 function Platform(options) {

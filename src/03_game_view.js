@@ -19,8 +19,8 @@ GameView.prototype.start = function start() {
 }
 
 GameView.prototype.bindKeyHandlers = function() {
-  if (key.isPressed("left")) { this.game.player.move([-7, 0]) };
-  if (key.isPressed("right")) { this.game.player.move([7, 0]) };
+  if (key.isPressed("left")) { this.game.player.move([-8, 0]) };
+  if (key.isPressed("right")) { this.game.player.move([8, 0]) };
 }
 
 module.exports = GameView;

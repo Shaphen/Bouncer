@@ -15,8 +15,7 @@ function Game() {
 
 Game.prototype.randomPos = function() {
   // return [(this.DIM_X / 2) * Math.random(), (this.DIM_Y) * Math.random()];
-  return [(Math.floor(Math.random() * (550) - 120)), -10];
-  
+  return [(Math.floor(Math.random() * (550) - 120)), -40];
 }
 
 Game.prototype.randomNum = function(min, max) {
@@ -36,7 +35,7 @@ Game.prototype.addPlatforms = function() {
     this.platforms.push(new Platform({
       width: Math.floor(Math.random() * (200-80) + 80),
       pos: this.randomPos(),
-      vel: [0, this.randomNum(2.5, 3.5)],
+      vel: [0, this.randomNum(2.5, 3)],
       game: this
     }));
   }
