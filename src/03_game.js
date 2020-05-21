@@ -9,7 +9,9 @@ function Game() {
   this.platforms = [];
   this.addPlatforms();
   this.player = new Player({
-    game: this
+    game: this,
+    width: 25,
+    height: 25,
   });
 }
 
@@ -46,7 +48,7 @@ Game.prototype.draw = function(ctx) {
   this.platforms.forEach(pf => {
     pf.drawRec(ctx);
   });
-  this.player.drawCir(ctx);
+  this.player.drawPlayer(ctx);
 }
 
 Game.prototype.moveObjects = function moveObjects() {
@@ -64,11 +66,24 @@ Game.prototype.wrap = function(pos) {
   return pos;
 }
 
-Game.prototype.reverse = function (pos, vel) {
-  if (pos[0] > (this.DIM_X - 200) || pos[0] < 0) {
-    vel = this.otherVel(vel)
-  }
-  return vel;
+// Game.prototype.reverse = function(pos, vel) {
+//   if (pos[0] > (this.DIM_X - 200) || pos[0] < 0) {
+//     vel = this.otherVel(vel)
+//   }
+//   return vel;
+// }
+
+Game.prototype.allObjects = function() {
+  return [].concat(this.platforms, this.player)
+}
+
+Game.prototype.checkCollisions = function() {
+  
+}
+
+Game.prototype.step = function() {
+  this.moveObjects();
+  this.checkCollisions();
 }
 
 module.exports = Game;
