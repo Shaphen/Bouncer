@@ -6,7 +6,6 @@ function GameView(game, ctx) {
 
 GameView.prototype.start = function start() {
   const animate = () => {
-    // this.game.moveObjects();
     this.game.step();
     this.game.draw(this.ctx);
     this.bindKeyHandlers();

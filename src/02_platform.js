@@ -1,5 +1,6 @@
 const Util = require("./00_utils");
 const GameObject = require("./01_game_object");
+Util.inherits(GameObject, Platform)
 
 const DEFAULT = {
   height: 7,
@@ -14,6 +15,5 @@ function Platform(options) {
   GameObject.call(this, options)
 }
 
-Util.inherits(GameObject, Platform)
 
 module.exports = Platform;

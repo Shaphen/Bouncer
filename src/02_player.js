@@ -1,5 +1,6 @@
 const Util = require("./00_utils");
 const GameObject = require("./01_game_object");
+Util.inherits(GameObject, Player);
 
 // player = new Player({
 //   vel: [-10, 0]
@@ -21,7 +22,6 @@ function Player(options) {
   GameObject.call(this, options);
 }
 
-Util.inherits(GameObject, Player);
 
 Player.prototype.move = function(pos) {
   let newPos = []

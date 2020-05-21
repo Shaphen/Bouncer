@@ -1,5 +1,6 @@
 const Platform = require("./02_platform");
 const Player = require("./02_player");
+const GameView = require("./03_game_view");
 
 function Game() {
   this.DIM_X = 450;
@@ -90,7 +91,9 @@ Game.prototype.checkCollisions = function() {
 
 Game.prototype.reset = function() {
   this.platforms = [];
-  this.player.pos = [220, 450]
+  this.player.pos = [220, 450];
+  key.unbind("left");
+  key.unbind("right");
 }
 
 Game.prototype.step = function() {
