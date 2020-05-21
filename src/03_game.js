@@ -83,7 +83,7 @@ Game.prototype.checkCollisions = function() {
   for (let i = 0; i < allObj.length-1; i++) {
     let player = allObj[allObj.length - 1]
     if (allObj[i].isCollidedWith(player)) {
-      alert("collision!")
+      alert("You Lose!")
       this.reset();
     }
   }
