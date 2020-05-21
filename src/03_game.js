@@ -83,9 +83,14 @@ Game.prototype.checkCollisions = function() {
     let player = allObj[allObj.length - 1]
     if (allObj[i].isCollidedWith(player)) {
       alert("collision!")
-      
+      this.reset();
     }
   }
+}
+
+Game.prototype.reset = function() {
+  this.platforms = [];
+  this.player.pos = [220, 450]
 }
 
 Game.prototype.step = function() {
