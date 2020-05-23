@@ -288,6 +288,7 @@ function Game() {
     width: 25,
     height: 25
   });
+  this.collided = false;
 }
 
 Game.prototype.randomPos = function () {
@@ -352,7 +353,7 @@ Game.prototype.allObjects = function () {
   return [].concat(this.platforms, this.player);
 };
 
-Game.prototype.checkCollisions = function () {
+Game.prototype.checkCollisions = function (gameView) {
   var allObj = this.allObjects();
 
   for (var i = 0; i < allObj.length - 1; i++) {
@@ -360,6 +361,10 @@ Game.prototype.checkCollisions = function () {
 
     if (allObj[i].isCollidedWith(player)) {
       alert("You Lose!");
+      this.collided = true;
+      gameView.bindKeyHandlers();
+      this.step();
+      this.draw(gameView.ctx);
       this.reset();
     }
   }
@@ -368,13 +373,18 @@ Game.prototype.checkCollisions = function () {
 Game.prototype.reset = function () {
   this.platforms = [];
   this.player.pos = [220, 450];
-  key.unbind("left");
-  key.unbind("right");
+  this.collided = false; // key.unbind("left");
+  // key.unbind("right");
 };
 
-Game.prototype.step = function () {
-  this.moveObjects();
-  this.checkCollisions();
+Game.prototype.step = function (gameView) {
+  this.moveObjects(); // this.checkCollisions(gameView);
+
+  if (!this.collided) {
+    this.checkCollisions(gameView);
+  }
+
+  ;
 };
 
 module.exports = Game;
@@ -397,11 +407,11 @@ GameView.prototype.start = function start() {
   var _this = this;
 
   var animate = function animate() {
-    _this.game.step();
+    _this.bindKeyHandlers();
+
+    _this.game.step(_this);
 
     _this.game.draw(_this.ctx);
-
-    _this.bindKeyHandlers();
   };
 
   setInterval(animate, 20);
@@ -424,7 +434,15 @@ GameView.prototype.bindKeyHandlers = function () {
     this.game.player.move([8, 0]);
   }
 
-  ;
+  ; // document.addEventListener("keydown", event => {
+  //   console.log(event)
+  //   if (event.keyCode === 37) {
+  //     this.game.player.move([-8, 0]);
+  //   }
+  //   if (event.keyCode === 39) {
+  //     this.game.player.move([8, 0]);
+  //   }
+  // })
 };
 
 module.exports = GameView;

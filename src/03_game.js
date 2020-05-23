@@ -14,6 +14,7 @@ function Game() {
     width: 25,
     height: 25,
   });
+  this.collided = false;
 }
 
 Game.prototype.randomPos = function() {
@@ -78,12 +79,16 @@ Game.prototype.allObjects = function() {
   return [].concat(this.platforms, this.player);
 }
 
-Game.prototype.checkCollisions = function() {
+Game.prototype.checkCollisions = function(gameView) {
   let allObj = this.allObjects();
   for (let i = 0; i < allObj.length-1; i++) {
     let player = allObj[allObj.length - 1]
     if (allObj[i].isCollidedWith(player)) {
       alert("You Lose!")
+      this.collided = true;
+      gameView.bindKeyHandlers();
+      this.step();
+      this.draw(gameView.ctx);
       this.reset();
     }
   }
@@ -92,13 +97,15 @@ Game.prototype.checkCollisions = function() {
 Game.prototype.reset = function() {
   this.platforms = [];
   this.player.pos = [220, 450];
-  key.unbind("left");
-  key.unbind("right");
+  this.collided = false;
+  // key.unbind("left");
+  // key.unbind("right");
 }
 
-Game.prototype.step = function() {
+Game.prototype.step = function(gameView) {
   this.moveObjects();
-  this.checkCollisions();
+  // this.checkCollisions(gameView);
+  if (!this.collided){ this.checkCollisions(gameView); };
 }
 
 module.exports = Game;
