@@ -13,7 +13,7 @@ GameView.prototype.start = function start() {
       this.bindKeyHandlers();
     }
   }
-  let startAnimate = setInterval(animate, 20);
+  let startAnimate = setInterval(animate, 15);
 
   const create = () => {
     if (document.hasFocus()) {
@@ -21,11 +21,18 @@ GameView.prototype.start = function start() {
     }
   }
   let startCreate = setInterval(create, 750);
+
+  // const faster = () => {
+  //   clearInterval(startAnimate);
+  //   setInterval(animate, 18);
+  // }
+
+  // let goFast = setInterval(faster, 10000);
 }
 
 GameView.prototype.bindKeyHandlers = function() {
-  if (key.isPressed("left")) { this.game.player.move([-8, 0]) };
-  if (key.isPressed("right")) { this.game.player.move([8, 0]) };
+  if (key.isPressed("left")) { this.game.player.move([-7, 0]) };
+  if (key.isPressed("right")) { this.game.player.move([7, 0]) };
 }
 
 module.exports = GameView;

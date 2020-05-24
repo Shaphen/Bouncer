@@ -275,8 +275,6 @@ var Platform = __webpack_require__(/*! ./02_platform */ "./src/02_platform.js");
 
 var Player = __webpack_require__(/*! ./02_player */ "./src/02_player.js");
 
-var GameView = __webpack_require__(/*! ./03_game_view */ "./src/03_game_view.js");
-
 function Game() {
   this.DIM_X = 450;
   this.DIM_Y = 500;
@@ -293,7 +291,7 @@ function Game() {
 
 Game.prototype.randomPos = function () {
   // return [(this.DIM_X / 2) * Math.random(), (this.DIM_Y) * Math.random()];
-  return [Math.floor(Math.random() * 550 - 120), -40];
+  return [Math.floor(Math.random() * 450 - 90), -20];
 };
 
 Game.prototype.randomNum = function (min, max) {
@@ -311,9 +309,9 @@ Game.prototype.otherVel = function (vel) {
 Game.prototype.addPlatforms = function () {
   for (var i = 0; i < this.NUM_PLATFORMS; i++) {
     this.platforms.push(new Platform({
-      width: Math.floor(Math.random() * (200 - 80) + 80),
+      width: Math.floor(Math.random() * (250 - 100) + 100),
       pos: this.randomPos(),
-      vel: [0, this.randomNum(2.5, 3)],
+      vel: [0, 2.5],
       game: this
     }));
   }
@@ -414,7 +412,7 @@ GameView.prototype.start = function start() {
     }
   };
 
-  var startAnimate = setInterval(animate, 20);
+  var startAnimate = setInterval(animate, 15);
 
   var create = function create() {
     if (document.hasFocus()) {
@@ -422,18 +420,22 @@ GameView.prototype.start = function start() {
     }
   };
 
-  var startCreate = setInterval(create, 750);
+  var startCreate = setInterval(create, 750); // const faster = () => {
+  //   clearInterval(startAnimate);
+  //   setInterval(animate, 18);
+  // }
+  // let goFast = setInterval(faster, 10000);
 };
 
 GameView.prototype.bindKeyHandlers = function () {
   if (key.isPressed("left")) {
-    this.game.player.move([-8, 0]);
+    this.game.player.move([-7, 0]);
   }
 
   ;
 
   if (key.isPressed("right")) {
-    this.game.player.move([8, 0]);
+    this.game.player.move([7, 0]);
   }
 
   ;
