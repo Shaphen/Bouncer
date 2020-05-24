@@ -96,7 +96,7 @@ Game.prototype.reset = function(startAnimate, startCreate) {
   this.collided = false;
   clearInterval(startAnimate);
   clearInterval(startCreate);
-  modal.style.display = "block";
+  modal2.style.display = "block";
 }
 
 Game.prototype.step = function(startAnimate, startCreate) {

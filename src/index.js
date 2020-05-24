@@ -7,14 +7,18 @@ window.addEventListener("DOMContentLoaded", () => {
   let canvas = document.getElementById("game-canvas");
   let ctx = canvas.getContext("2d")
   let span = document.getElementsByClassName("close-modal")[0];
-  var modal = document.getElementById("modal");
+  let span2 = document.getElementsByClassName("close-modal2")[0];
   const game = new Game();
 
   modal.style.display = "block";
 
   span.onclick = function () {
     modal.style.display = "none";
-    start = true;
+    new GameView(game, ctx).start();
+  }
+
+  span2.onclick = function () {
+    modal2.style.display = "none";
     new GameView(game, ctx).start();
   }
 });

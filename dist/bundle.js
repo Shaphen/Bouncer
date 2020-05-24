@@ -372,7 +372,7 @@ Game.prototype.reset = function (startAnimate, startCreate) {
   this.collided = false;
   clearInterval(startAnimate);
   clearInterval(startCreate);
-  modal.style.display = "block";
+  modal2.style.display = "block";
 };
 
 Game.prototype.step = function (startAnimate, startCreate) {
@@ -461,13 +461,17 @@ window.addEventListener("DOMContentLoaded", function () {
   var canvas = document.getElementById("game-canvas");
   var ctx = canvas.getContext("2d");
   var span = document.getElementsByClassName("close-modal")[0];
-  var modal = document.getElementById("modal");
+  var span2 = document.getElementsByClassName("close-modal2")[0];
   var game = new Game();
   modal.style.display = "block";
 
   span.onclick = function () {
     modal.style.display = "none";
-    start = true;
+    new GameView(game, ctx).start();
+  };
+
+  span2.onclick = function () {
+    modal2.style.display = "none";
     new GameView(game, ctx).start();
   };
 });
