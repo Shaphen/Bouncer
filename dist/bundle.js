@@ -396,7 +396,7 @@ module.exports = Game;
 
 function GameView(game, ctx) {
   this.game = game;
-  this.ctx = ctx;
+  this.ctx = ctx; // this.counter = 0
 }
 
 GameView.prototype.start = function start() {
@@ -420,11 +420,9 @@ GameView.prototype.start = function start() {
     }
   };
 
-  var startCreate = setInterval(create, 750); // const faster = () => {
-  //   clearInterval(startAnimate);
-  //   setInterval(animate, 18);
-  // }
-  // let goFast = setInterval(faster, 10000);
+  var startCreate = setInterval(create, 750); // setInterval(() => {
+  //   this.counter += 1
+  // }, 1000);
 };
 
 GameView.prototype.bindKeyHandlers = function () {
