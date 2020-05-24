@@ -4,19 +4,19 @@ function GameView(game, ctx) {
   this.ctx = ctx;
 }
 
-GameView.prototype.start = function start(span, modal) {
+GameView.prototype.start = function start() {
 
   const animate = () => {
-    this.game.step(this);
+    this.game.step(startAnimate, startCreate);
     this.game.draw(this.ctx);
     this.bindKeyHandlers();
   }
-  setInterval(animate, 20);
+  let startAnimate = setInterval(animate, 20);
 
   const create = () => {
     this.game.addPlatforms();
   }
-  setInterval(create, 750);
+  let startCreate = setInterval(create, 750);
 }
 
 GameView.prototype.bindKeyHandlers = function() {

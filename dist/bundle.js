@@ -353,7 +353,7 @@ Game.prototype.allObjects = function () {
   return [].concat(this.platforms, this.player);
 };
 
-Game.prototype.checkCollisions = function (gameView) {
+Game.prototype.checkCollisions = function (startAnimate, startCreate) {
   var allObj = this.allObjects();
 
   for (var i = 0; i < allObj.length - 1; i++) {
@@ -361,22 +361,25 @@ Game.prototype.checkCollisions = function (gameView) {
 
     if (allObj[i].isCollidedWith(player)) {
       this.collided = true;
-      this.reset(gameView);
+      this.reset(startAnimate, startCreate);
     }
   }
 };
 
-Game.prototype.reset = function (gameView) {
+Game.prototype.reset = function (startAnimate, startCreate) {
   this.platforms = [];
   this.player.pos = [220, 450];
-  this.collided = false; // gameView.gameStart = false;
+  this.collided = false;
+  clearInterval(startAnimate);
+  clearInterval(startCreate);
+  modal.style.display = "block";
 };
 
-Game.prototype.step = function (gameView) {
-  this.moveObjects(); // this.checkCollisions(gameView);
+Game.prototype.step = function (startAnimate, startCreate) {
+  this.moveObjects();
 
   if (!this.collided) {
-    this.checkCollisions(gameView);
+    this.checkCollisions(startAnimate, startCreate);
   }
 
   ;
@@ -398,24 +401,24 @@ function GameView(game, ctx) {
   this.ctx = ctx;
 }
 
-GameView.prototype.start = function start(span, modal) {
+GameView.prototype.start = function start() {
   var _this = this;
 
   var animate = function animate() {
-    _this.game.step(_this);
+    _this.game.step(startAnimate, startCreate);
 
     _this.game.draw(_this.ctx);
 
     _this.bindKeyHandlers();
   };
 
-  setInterval(animate, 20);
+  var startAnimate = setInterval(animate, 20);
 
   var create = function create() {
     _this.game.addPlatforms();
   };
 
-  setInterval(create, 750);
+  var startCreate = setInterval(create, 750);
 };
 
 GameView.prototype.bindKeyHandlers = function () {
@@ -462,6 +465,7 @@ window.addEventListener("DOMContentLoaded", function () {
   var canvas = document.getElementById("game-canvas");
   var ctx = canvas.getContext("2d");
   var span = document.getElementsByClassName("close-modal")[0];
+  var modal = document.getElementById("modal");
   var game = new Game();
   modal.style.display = "block";
 

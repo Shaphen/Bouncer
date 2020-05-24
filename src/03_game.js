@@ -79,28 +79,29 @@ Game.prototype.allObjects = function() {
   return [].concat(this.platforms, this.player);
 }
 
-Game.prototype.checkCollisions = function(gameView) {
+Game.prototype.checkCollisions = function(startAnimate, startCreate) {
   let allObj = this.allObjects();
   for (let i = 0; i < allObj.length-1; i++) {
     let player = allObj[allObj.length - 1]
     if (allObj[i].isCollidedWith(player)) {
       this.collided = true;
-      this.reset(gameView);
+      this.reset(startAnimate, startCreate);
     }
   }
 }
 
-Game.prototype.reset = function(gameView) {
+Game.prototype.reset = function(startAnimate, startCreate) {
   this.platforms = [];
   this.player.pos = [220, 450];
   this.collided = false;
-  // gameView.gameStart = false;
+  clearInterval(startAnimate);
+  clearInterval(startCreate);
+  modal.style.display = "block";
 }
 
-Game.prototype.step = function(gameView) {
+Game.prototype.step = function(startAnimate, startCreate) {
   this.moveObjects();
-  // this.checkCollisions(gameView);
-  if (!this.collided){ this.checkCollisions(gameView); };
+  if (!this.collided){ this.checkCollisions(startAnimate, startCreate); };
 }
 
 module.exports = Game;
