@@ -360,21 +360,16 @@ Game.prototype.checkCollisions = function (gameView) {
     var player = allObj[allObj.length - 1];
 
     if (allObj[i].isCollidedWith(player)) {
-      alert("You Lose!");
       this.collided = true;
-      gameView.bindKeyHandlers();
-      this.step();
-      this.draw(gameView.ctx);
-      this.reset();
+      this.reset(gameView);
     }
   }
 };
 
-Game.prototype.reset = function () {
+Game.prototype.reset = function (gameView) {
   this.platforms = [];
   this.player.pos = [220, 450];
-  this.collided = false; // key.unbind("left");
-  // key.unbind("right");
+  this.collided = false; // gameView.gameStart = false;
 };
 
 Game.prototype.step = function (gameView) {
@@ -403,15 +398,15 @@ function GameView(game, ctx) {
   this.ctx = ctx;
 }
 
-GameView.prototype.start = function start() {
+GameView.prototype.start = function start(span, modal) {
   var _this = this;
 
   var animate = function animate() {
-    _this.bindKeyHandlers();
-
     _this.game.step(_this);
 
     _this.game.draw(_this.ctx);
+
+    _this.bindKeyHandlers();
   };
 
   setInterval(animate, 20);
@@ -437,10 +432,10 @@ GameView.prototype.bindKeyHandlers = function () {
   ; // document.addEventListener("keydown", event => {
   //   console.log(event)
   //   if (event.keyCode === 37) {
-  //     this.game.player.move([-8, 0]);
+  //     this.game.player.move([-0.2, 0]);
   //   }
   //   if (event.keyCode === 39) {
-  //     this.game.player.move([8, 0]);
+  //     this.game.player.move([0.2, 0]);
   //   }
   // })
 };
@@ -456,18 +451,6 @@ module.exports = GameView;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var GameObject = __webpack_require__(/*! ./01_game_object */ "./src/01_game_object.js");
-
-window.GameObject = GameObject;
-
-var Platform = __webpack_require__(/*! ./02_platform */ "./src/02_platform.js");
-
-window.Platform = Platform;
-
-var Player = __webpack_require__(/*! ./02_player */ "./src/02_player.js");
-
-window.Player = Player;
-
 var Game = __webpack_require__(/*! ./03_game */ "./src/03_game.js");
 
 window.Game = Game;
@@ -478,8 +461,15 @@ window.GameView = GameView;
 window.addEventListener("DOMContentLoaded", function () {
   var canvas = document.getElementById("game-canvas");
   var ctx = canvas.getContext("2d");
+  var span = document.getElementsByClassName("close-modal")[0];
   var game = new Game();
-  new GameView(game, ctx).start();
+  modal.style.display = "block";
+
+  span.onclick = function () {
+    modal.style.display = "none";
+    start = true;
+    new GameView(game, ctx).start();
+  };
 });
 
 /***/ })

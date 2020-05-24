@@ -84,22 +84,17 @@ Game.prototype.checkCollisions = function(gameView) {
   for (let i = 0; i < allObj.length-1; i++) {
     let player = allObj[allObj.length - 1]
     if (allObj[i].isCollidedWith(player)) {
-      alert("You Lose!")
       this.collided = true;
-      gameView.bindKeyHandlers();
-      this.step();
-      this.draw(gameView.ctx);
-      this.reset();
+      this.reset(gameView);
     }
   }
 }
 
-Game.prototype.reset = function() {
+Game.prototype.reset = function(gameView) {
   this.platforms = [];
   this.player.pos = [220, 450];
   this.collided = false;
-  // key.unbind("left");
-  // key.unbind("right");
+  // gameView.gameStart = false;
 }
 
 Game.prototype.step = function(gameView) {
