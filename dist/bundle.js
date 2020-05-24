@@ -405,17 +405,21 @@ GameView.prototype.start = function start() {
   var _this = this;
 
   var animate = function animate() {
-    _this.game.step(startAnimate, startCreate);
+    if (document.hasFocus()) {
+      _this.game.step(startAnimate, startCreate);
 
-    _this.game.draw(_this.ctx);
+      _this.game.draw(_this.ctx);
 
-    _this.bindKeyHandlers();
+      _this.bindKeyHandlers();
+    }
   };
 
   var startAnimate = setInterval(animate, 20);
 
   var create = function create() {
-    _this.game.addPlatforms();
+    if (document.hasFocus()) {
+      _this.game.addPlatforms();
+    }
   };
 
   var startCreate = setInterval(create, 750);

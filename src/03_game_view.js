@@ -7,14 +7,18 @@ function GameView(game, ctx) {
 GameView.prototype.start = function start() {
 
   const animate = () => {
-    this.game.step(startAnimate, startCreate);
-    this.game.draw(this.ctx);
-    this.bindKeyHandlers();
+    if (document.hasFocus()) { 
+      this.game.step(startAnimate, startCreate);
+      this.game.draw(this.ctx);
+      this.bindKeyHandlers();
+    }
   }
   let startAnimate = setInterval(animate, 20);
 
   const create = () => {
-    this.game.addPlatforms();
+    if (document.hasFocus()) {
+      this.game.addPlatforms();
+    }
   }
   let startCreate = setInterval(create, 750);
 }
