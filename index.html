@@ -11,8 +11,14 @@
     <!-- <button id="open-modal">Open Modal Test</button> -->
     <div id="modal">
       <div class="modal-content">
-        <p>this is the game start modal</p>
-        <span class="close-modal">Click here to Start!</span>
+        <p id="title">Welcome to Dodge!</p>
+        <p id="sub-title">The rules are simple: </p>
+        <ol id="intructions-list">
+          <li id="instruction-item">Use the arrow keys ⬅️to move left ➡️ to move right</li>
+          <li id="instruction-item">Red platforms are falling from the sky! Avoid them for as long as you can</li>
+          <li id="instruction-item">That's it! When your ready click the <strong>start</strong> button below. How long will you last?</li>
+        </ol>
+        <span class="close-modal">Start!</span>
       </div>
     </div>
     <canvas id="game-canvas" width="450" height="500"></canvas>

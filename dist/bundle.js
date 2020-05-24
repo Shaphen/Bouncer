@@ -432,15 +432,7 @@ GameView.prototype.bindKeyHandlers = function () {
     this.game.player.move([8, 0]);
   }
 
-  ; // document.addEventListener("keydown", event => {
-  //   console.log(event)
-  //   if (event.keyCode === 37) {
-  //     this.game.player.move([-0.2, 0]);
-  //   }
-  //   if (event.keyCode === 39) {
-  //     this.game.player.move([0.2, 0]);
-  //   }
-  // })
+  ;
 };
 
 module.exports = GameView;
