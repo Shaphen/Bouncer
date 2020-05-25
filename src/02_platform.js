@@ -9,8 +9,8 @@ const DEFAULT = {
 
 function Platform(options) {
   this.DIM_X = 450;
-  options.height = DEFAULT.height;
-  options.color = DEFAULT.color;
+  options.height = options.height || DEFAULT.height;
+  options.color = options.color || DEFAULT.color;
   options.game = options.game;
   GameObject.call(this, options)
 }

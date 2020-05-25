@@ -10,7 +10,9 @@ GameView.prototype.start = function start() {
     if (document.hasFocus()) { 
       this.game.step(startAnimate, startCreate);
       this.game.draw(this.ctx);
-      this.bindKeyHandlers();
+      if (this.game.player) {
+        this.bindKeyHandlers();
+      }
     }
   }
   let startAnimate = setInterval(animate, 15);

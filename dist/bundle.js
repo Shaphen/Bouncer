@@ -142,6 +142,15 @@ GameObject.prototype.drawRec = function (ctx) {
   ctx.fill();
 };
 
+GameObject.prototype.drawBgRec = function (ctx) {
+  ctx.beginPath();
+  ctx.fillStyle = "white";
+  ctx.shadowColor = "white";
+  ctx.shadowBlur = 10;
+  ctx.rect(this.pos[0], this.pos[1], this.width, this.height);
+  ctx.fill();
+};
+
 GameObject.prototype.drawPlayer = function (ctx) {
   ctx.beginPath();
   ctx.fillStyle = "black";
@@ -211,8 +220,8 @@ var DEFAULT = {
 
 function Platform(options) {
   this.DIM_X = 450;
-  options.height = DEFAULT.height;
-  options.color = DEFAULT.color;
+  options.height = options.height || DEFAULT.height;
+  options.color = options.color || DEFAULT.color;
   options.game = options.game;
   GameObject.call(this, options);
 }
@@ -261,6 +270,74 @@ Player.prototype.move = function (pos) {
 };
 
 module.exports = Player;
+
+/***/ }),
+
+/***/ "./src/03_bg_objects.js":
+/*!******************************!*\
+  !*** ./src/03_bg_objects.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Platform = __webpack_require__(/*! ./02_platform */ "./src/02_platform.js");
+
+var Player = __webpack_require__(/*! ./02_player */ "./src/02_player.js");
+
+function Game() {
+  this.DIM_X = window.innerWidth;
+  this.DIM_Y = window.innerHeight;
+  this.NUM_PLATFORMS = 5;
+  this.platforms = [];
+  this.addPlatforms();
+}
+
+Game.prototype.randomPos = function () {
+  return [Math.floor(Math.random() * this.DIM_X - 100), -500]; // return [(Math.floor(Math.random() * (450) - 90)), -20]; // smaller
+};
+
+Game.prototype.randomNum = function (min, max) {
+  return Math.random() < 0.5 ? min : max;
+};
+
+Game.prototype.otherVel = function (vel) {
+  if (vel[0] === 1.5) {
+    return [-1.5, 0];
+  } else {
+    return [1.5, 0];
+  }
+};
+
+Game.prototype.addPlatforms = function () {
+  for (var i = 0; i < this.NUM_PLATFORMS; i++) {
+    this.platforms.push(new Platform({
+      height: 300,
+      width: 1,
+      pos: this.randomPos(),
+      vel: [0, this.randomNum(1, 2)],
+      game: this
+    }));
+  }
+};
+
+Game.prototype.draw = function (ctx) {
+  ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
+  this.platforms.forEach(function (pf) {
+    pf.drawBgRec(ctx);
+  });
+};
+
+Game.prototype.moveObjects = function moveObjects() {
+  this.platforms.forEach(function (pf) {
+    pf.move();
+  });
+};
+
+Game.prototype.step = function () {
+  this.moveObjects();
+};
+
+module.exports = Game;
 
 /***/ }),
 
@@ -407,7 +484,9 @@ GameView.prototype.start = function start() {
 
       _this.game.draw(_this.ctx);
 
-      _this.bindKeyHandlers();
+      if (_this.game.player) {
+        _this.bindKeyHandlers();
+      }
     }
   };
 
@@ -451,15 +530,21 @@ var Game = __webpack_require__(/*! ./03_game */ "./src/03_game.js");
 
 window.Game = Game;
 
+var bgObjs = __webpack_require__(/*! ./03_bg_objects */ "./src/03_bg_objects.js");
+
 var GameView = __webpack_require__(/*! ./03_game_view */ "./src/03_game_view.js");
 
 window.GameView = GameView;
 window.addEventListener("DOMContentLoaded", function () {
   var canvas = document.getElementById("game-canvas");
   var ctx = canvas.getContext("2d");
+  var bgCanvas = document.getElementById("bg-canvas");
+  var bgCtx = bgCanvas.getContext("2d");
   var span = document.getElementsByClassName("close-modal")[0];
   var span2 = document.getElementsByClassName("close-modal2")[0];
   var game = new Game();
+  var bgAnimation = new bgObjs();
+  new GameView(bgAnimation, bgCtx).start();
   modal.style.display = "block";
 
   span.onclick = function () {
