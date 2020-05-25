@@ -4,14 +4,14 @@ const Player = require("./02_player");
 function Game() {
   this.DIM_X = window.innerWidth;
   this.DIM_Y = window.innerHeight;
-  this.NUM_PLATFORMS = 5;
+  this.NUM_PLATFORMS = 7;
 
   this.platforms = [];
   this.addPlatforms();
 }
 
 Game.prototype.randomPos = function() {
-  return [(Math.floor(Math.random() * (this.DIM_X) - 100)), -500];
+  return [(Math.floor(Math.random() * (this.DIM_X) - 100)), -300];
   // return [(Math.floor(Math.random() * (450) - 90)), -20]; // smaller
 }
 
@@ -30,7 +30,7 @@ Game.prototype.otherVel = function(vel) {
 Game.prototype.addPlatforms = function() {
   for (let i = 0; i < this.NUM_PLATFORMS; i++) {
     this.platforms.push(new Platform({
-      height: 300,
+      height: 150,
       width: 1,
       pos: this.randomPos(),
       vel: [0, this.randomNum(1, 2)],

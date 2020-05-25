@@ -22,7 +22,7 @@ GameObject.prototype.drawRec = function(ctx) {
 
 GameObject.prototype.drawBgRec = function (ctx) {
   ctx.beginPath();
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
   ctx.shadowColor = "white";
   ctx.shadowBlur = 10
 
