@@ -2,7 +2,6 @@
 function GameView(game, ctx) {
   this.game = game;
   this.ctx = ctx;
-  // this.counter = 0
 }
 
 GameView.prototype.start = function start() {
@@ -23,15 +22,11 @@ GameView.prototype.start = function start() {
   }
   let startCreate = setInterval(create, 700);
 
-  // setInterval(() => {
-  //   this.counter += 1
-  // }, 1000);
-
 }
 
 GameView.prototype.bindKeyHandlers = function() {
-  if (key.isPressed("left")) { this.game.player.move([-7, 0]) };
-  if (key.isPressed("right")) { this.game.player.move([7, 0]) };
+  if (key.isPressed("left")) { this.game.player.move([-8, 0]) };
+  if (key.isPressed("right")) { this.game.player.move([8, 0]) };
 }
 
 module.exports = GameView;

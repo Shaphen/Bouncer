@@ -2,7 +2,7 @@ const Platform = require("./02_platform");
 const Player = require("./02_player");
 
 function Game() {
-  this.DIM_X = 450;
+  this.DIM_X = 650;
   this.DIM_Y = 500;
   this.NUM_PLATFORMS = 1;
 
@@ -17,8 +17,8 @@ function Game() {
 }
 
 Game.prototype.randomPos = function() {
-  // return [(this.DIM_X / 2) * Math.random(), (this.DIM_Y) * Math.random()];
-  return [(Math.floor(Math.random() * (450) - 90)), -20];
+  return [(Math.floor(Math.random() * (650) - 100)), -20];
+  // return [(Math.floor(Math.random() * (450) - 90)), -20]; // smaller
 }
 
 Game.prototype.randomNum = function(min, max) {
@@ -36,9 +36,9 @@ Game.prototype.otherVel = function(vel) {
 Game.prototype.addPlatforms = function() {
   for (let i = 0; i < this.NUM_PLATFORMS; i++) {
     this.platforms.push(new Platform({
-      width: Math.floor(Math.random() * (250-150) + 150),
+      width: Math.floor(Math.random() * (300-200) + 200),
       pos: this.randomPos(),
-      vel: [0, 2.5],
+      vel: [0, this.randomNum(3, 4)],
       game: this
     }));
   }
