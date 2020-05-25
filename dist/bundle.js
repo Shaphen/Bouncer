@@ -420,7 +420,7 @@ GameView.prototype.start = function start() {
     }
   };
 
-  var startCreate = setInterval(create, 750); // setInterval(() => {
+  var startCreate = setInterval(create, 700); // setInterval(() => {
   //   this.counter += 1
   // }, 1000);
 };

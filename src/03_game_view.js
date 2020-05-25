@@ -21,7 +21,7 @@ GameView.prototype.start = function start() {
       this.game.addPlatforms();
     }
   }
-  let startCreate = setInterval(create, 750);
+  let startCreate = setInterval(create, 700);
 
   // setInterval(() => {
   //   this.counter += 1
