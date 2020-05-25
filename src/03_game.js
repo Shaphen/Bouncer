@@ -18,7 +18,6 @@ function Game() {
 
 Game.prototype.randomPos = function() {
   return [(Math.floor(Math.random() * (650) - 100)), -20];
-  // return [(Math.floor(Math.random() * (450) - 90)), -20]; // smaller
 }
 
 Game.prototype.randomNum = function(min, max) {

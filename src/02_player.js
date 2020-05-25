@@ -2,10 +2,6 @@ const Util = require("./00_utils");
 const GameObject = require("./01_game_object");
 Util.inherits(GameObject, Player);
 
-// player = new Player({
-//   vel: [-10, 0]
-// });
-
 const DEFAULT = {
   pos: [320, 450],
   rad: 16,

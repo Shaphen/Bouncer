@@ -241,10 +241,7 @@ var Util = __webpack_require__(/*! ./00_utils */ "./src/00_utils.js");
 
 var GameObject = __webpack_require__(/*! ./01_game_object */ "./src/01_game_object.js");
 
-Util.inherits(GameObject, Player); // player = new Player({
-//   vel: [-10, 0]
-// });
-
+Util.inherits(GameObject, Player);
 var DEFAULT = {
   pos: [320, 450],
   rad: 16,
@@ -282,8 +279,6 @@ module.exports = Player;
 
 var Platform = __webpack_require__(/*! ./02_platform */ "./src/02_platform.js");
 
-var Player = __webpack_require__(/*! ./02_player */ "./src/02_player.js");
-
 function Game() {
   this.DIM_X = window.innerWidth;
   this.DIM_Y = window.innerHeight;
@@ -293,7 +288,7 @@ function Game() {
 }
 
 Game.prototype.randomPos = function () {
-  return [Math.floor(Math.random() * this.DIM_X - 100), -300]; // return [(Math.floor(Math.random() * (450) - 90)), -20]; // smaller
+  return [Math.floor(Math.random() * this.DIM_X - 100), -300];
 };
 
 Game.prototype.randomNum = function (min, max) {
@@ -367,7 +362,7 @@ function Game() {
 }
 
 Game.prototype.randomPos = function () {
-  return [Math.floor(Math.random() * 650 - 100), -20]; // return [(Math.floor(Math.random() * (450) - 90)), -20]; // smaller
+  return [Math.floor(Math.random() * 650 - 100), -20];
 };
 
 Game.prototype.randomNum = function (min, max) {
@@ -526,11 +521,11 @@ module.exports = GameView;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var bgObjs = __webpack_require__(/*! ./03_bg_objects */ "./src/03_bg_objects.js");
+
 var Game = __webpack_require__(/*! ./03_game */ "./src/03_game.js");
 
 window.Game = Game;
-
-var bgObjs = __webpack_require__(/*! ./03_bg_objects */ "./src/03_bg_objects.js");
 
 var GameView = __webpack_require__(/*! ./03_game_view */ "./src/03_game_view.js");
 

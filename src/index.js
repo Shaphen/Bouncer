@@ -1,6 +1,6 @@
+const bgObjs = require("./03_bg_objects");
 const Game = require("./03_game");
 window.Game = Game;
-const bgObjs = require("./03_bg_objects");
 const GameView = require("./03_game_view");
 window.GameView = GameView
 

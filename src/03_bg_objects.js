@@ -1,5 +1,4 @@
 const Platform = require("./02_platform");
-const Player = require("./02_player");
 
 function Game() {
   this.DIM_X = window.innerWidth;
@@ -12,7 +11,6 @@ function Game() {
 
 Game.prototype.randomPos = function() {
   return [(Math.floor(Math.random() * (this.DIM_X) - 100)), -300];
-  // return [(Math.floor(Math.random() * (450) - 90)), -20]; // smaller
 }
 
 Game.prototype.randomNum = function(min, max) {
