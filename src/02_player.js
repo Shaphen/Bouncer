@@ -7,7 +7,7 @@ Util.inherits(GameObject, Player);
 // });
 
 const DEFAULT = {
-  pos: [220, 450],
+  pos: [320, 450],
   rad: 16,
   color: "white"
 };

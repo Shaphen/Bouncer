@@ -237,7 +237,7 @@ Util.inherits(GameObject, Player); // player = new Player({
 // });
 
 var DEFAULT = {
-  pos: [220, 450],
+  pos: [320, 450],
   rad: 16,
   color: "white"
 };
@@ -365,7 +365,7 @@ Game.prototype.checkCollisions = function (startAnimate, startCreate) {
 
 Game.prototype.reset = function (startAnimate, startCreate) {
   this.platforms = [];
-  this.player.pos = [220, 450];
+  this.player.pos = [320, 450];
   this.collided = false;
   clearInterval(startAnimate);
   clearInterval(startCreate);

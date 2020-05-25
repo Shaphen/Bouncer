@@ -91,7 +91,7 @@ Game.prototype.checkCollisions = function(startAnimate, startCreate) {
 
 Game.prototype.reset = function(startAnimate, startCreate) {
   this.platforms = [];
-  this.player.pos = [220, 450];
+  this.player.pos = [320, 450];
   this.collided = false;
   clearInterval(startAnimate);
   clearInterval(startCreate);
