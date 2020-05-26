@@ -18,7 +18,7 @@ Collision detection logic constantly checks with every cycle of the game loop if
 Game.prototype.checkCollisions = function(startAnimate, startCreate) {
   let allObj = this.allObjects();
   for (let i = 0; i < allObj.length-1; i++) {
-    let player = allObj[allObj.length - 1] //player is always first in allObjects array
+    let player = allObj[allObj.length - 1]
     if (allObj[i].isCollidedWith(player)) {
       this.collided = true;
       this.reset(startAnimate, startCreate);
