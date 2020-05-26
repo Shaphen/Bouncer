@@ -78,7 +78,6 @@ GameObject.prototype.isCollidedWith = function(otherObj) {
   if (top1 > bottom2 || right1 < left2 || bottom1 < top2 || left1 > right2) {
     return false;
   }
-
   return true;
 }
 
