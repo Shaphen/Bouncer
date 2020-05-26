@@ -37,3 +37,23 @@ GameObject.prototype.isCollidedWith = function(otherObj) {
   return true;
 }
 ```
+
+### Screen Wrapping
+![Dodge-wrap](https://github.com/Shaphen/Dodge/blob/master/dist/gifs/dodge_wrap.gif)
+The player is able to smoothly wrap from one side of the screen to the other instantly when breaking the game boundries. This feature was created to help players have an even bigger advantage in the game and keep the difficulty balanced.
+
+```javascript
+Game.prototype.wrap = function(pos) {
+  if (pos[0] > this.DIM_X + 20) {
+    pos[0] = (pos[0] % this.DIM_X) - 40;
+  } else if (pos[0] < -20) {
+    pos[0] = this.DIM_X + 20;
+  }
+  return pos;
+}
+```
+
+## Future Directions
+* Implement levels with increasing difficulty over time
+* Change colors of platforms and background animations over time
+* Improve visualizations
