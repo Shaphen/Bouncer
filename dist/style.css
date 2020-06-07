@@ -217,7 +217,15 @@ body{
   transition: opacity 0.3s;
 }
 
-#linkedin-link:hover {
+#linkedin-link2 {
+  position: absolute;
+  left: 600px;
+  width: 27px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+#linkedin-link:hover, #linkedin-link2:hover {
   opacity: 1;
 }
 
@@ -230,6 +238,14 @@ body{
   transition: opacity 0.3s;
 }
 
-#github-link:hover {
+#github-link2 {
+  position: absolute;
+  left: 638px;
+  width: 27px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+#github-link:hover, #github-link2:hover {
   opacity: 1;
 }
