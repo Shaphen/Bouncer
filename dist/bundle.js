@@ -382,7 +382,7 @@ Game.prototype.addPlatforms = function () {
     this.platforms.push(new Platform({
       width: Math.floor(Math.random() * (300 - 200) + 200),
       pos: this.randomPos(),
-      vel: [0, this.randomNum(3, 4)],
+      vel: [0, this.randomNum(4, 5)],
       game: this
     }));
   }
@@ -530,13 +530,27 @@ window.Game = Game;
 var GameView = __webpack_require__(/*! ./03_game_view */ "./src/03_game_view.js");
 
 window.GameView = GameView;
-window.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   var canvas = document.getElementById("game-canvas");
   var ctx = canvas.getContext("2d");
   var bgCanvas = document.getElementById("bg-canvas");
   var bgCtx = bgCanvas.getContext("2d");
   var span = document.getElementsByClassName("close-modal")[0];
-  var span2 = document.getElementsByClassName("close-modal2")[0];
+  var span2 = document.getElementsByClassName("close-modal2")[0]; // music code
+
+  var music = document.getElementById("music");
+  var playMusic = document.getElementById("play");
+  var pauseMusic = document.getElementById("pause");
+
+  playMusic.addEventListener("click", function () {
+    console.log("test");
+    music.play();
+  });
+  pauseMusic.addEventListener("click", function () {
+    console.log("other");
+    music.pause();
+  }); // end music code
+
   var game = new Game();
   var bgAnimation = new bgObjs();
   new GameView(bgAnimation, bgCtx).start();
