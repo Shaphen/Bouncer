@@ -37,7 +37,7 @@ Game.prototype.addPlatforms = function() {
     this.platforms.push(new Platform({
       width: Math.floor(Math.random() * (300-200) + 200),
       pos: this.randomPos(),
-      vel: [0, this.randomNum(3, 4)],
+      vel: [0, this.randomNum(4, 5)],
       game: this
     }));
   }
