@@ -12,19 +12,36 @@ document.addEventListener("DOMContentLoaded", () => {
   let span = document.getElementsByClassName("close-modal")[0];
   let span2 = document.getElementsByClassName("close-modal2")[0];
   const music = document.getElementById("music");
-  const playMusic = document.getElementById("play");
-  const pauseMusic = document.getElementById("pause");
-  pauseMusic.style.display = "none";
+  const playMusic1 = document.getElementById("play1");
+  const pauseMusic1 = document.getElementById("pause1");
+  const playMusic2 = document.getElementById("play2");
+  const pauseMusic2 = document.getElementById("pause2");
+  pauseMusic1.style.display = "none";
+  pauseMusic2.style.display = "none";
 
-  playMusic.addEventListener("click", function() {
+  playMusic1.addEventListener("click", function() {
     music.play();
-    playMusic.style.display = "none";
-    pauseMusic.style.display = "block";
+    playMusic1.style.display = "none";
+    playMusic2.style.display = "none";
+    pauseMusic1.style.display = "block";
+    pauseMusic2.style.display = "block";
   });
-  pauseMusic.addEventListener("click", function() {
+  pauseMusic1.addEventListener("click", function() {
     music.pause();
-    pauseMusic.style.display = "none";
-    playMusic.style.display = "block";
+    pauseMusic1.style.display = "none";
+    pauseMusic2.style.display = "none";
+    playMusic1.style.display = "block";
+    playMusic2.style.display = "block";
+  });
+  playMusic2.addEventListener("click", function () {
+    music.play();
+    playMusic2.style.display = "none";
+    pauseMusic2.style.display = "block";
+  });
+  pauseMusic2.addEventListener("click", function () {
+    music.pause();
+    pauseMusic2.style.display = "none";
+    playMusic2.style.display = "block";
   });
 
   const game = new Game();

@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <audio id="music" loop="loop">
+      <source src="./dist/audio/defense_line.mp3" type="audio/mp3" />
+    </audio>
     <div id="modal">
       <div class="modal-content">
         <p id="title">Welcome to Dodge!</p>
@@ -19,11 +22,8 @@
           <li id="instruction-item">That's it! When your ready click the <strong>start</strong> button below. How long can you last?</li>
         </ol>
         <span class="close-modal">Start!</span>
-        <audio id="music" loop="loop">
-          <source src="./dist/audio/defense_line.mp3" type="audio/mp3" />
-        </audio>
-        <button id="play">Play Music</button>
-        <button id="pause">Pause Music</button>
+        <button id="play1">PLAY MUSIC</button>
+        <button id="pause1">PAUSE MUSIC</button>
       </div>
     </div>
     <div id="modal2">
@@ -31,8 +31,8 @@
         <p id="title2">You lost!</p>
         <p id="sub-title2">Would you like to try again?</p>
         <span class="close-modal2">Yes!</span>
-        <button id="play">Play Music</button>
-        <button id="pause">Pause Music</button>
+        <button id="play2">Play Music</button>
+        <button id="pause2">Pause Music</button>
       </div>
     </div>
     <canvas id="game-canvas" width="650" height="500"></canvas>

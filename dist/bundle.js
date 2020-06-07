@@ -538,18 +538,35 @@ document.addEventListener("DOMContentLoaded", function () {
   var span = document.getElementsByClassName("close-modal")[0];
   var span2 = document.getElementsByClassName("close-modal2")[0];
   var music = document.getElementById("music");
-  var playMusic = document.getElementById("play");
-  var pauseMusic = document.getElementById("pause");
-  pauseMusic.style.display = "none";
-  playMusic.addEventListener("click", function () {
+  var playMusic1 = document.getElementById("play1");
+  var pauseMusic1 = document.getElementById("pause1");
+  var playMusic2 = document.getElementById("play2");
+  var pauseMusic2 = document.getElementById("pause2");
+  pauseMusic1.style.display = "none";
+  pauseMusic2.style.display = "none";
+  playMusic1.addEventListener("click", function () {
     music.play();
-    playMusic.style.display = "none";
-    pauseMusic.style.display = "block";
+    playMusic1.style.display = "none";
+    playMusic2.style.display = "none";
+    pauseMusic1.style.display = "block";
+    pauseMusic2.style.display = "block";
   });
-  pauseMusic.addEventListener("click", function () {
+  pauseMusic1.addEventListener("click", function () {
     music.pause();
-    pauseMusic.style.display = "none";
-    playMusic.style.display = "block";
+    pauseMusic1.style.display = "none";
+    pauseMusic2.style.display = "none";
+    playMusic1.style.display = "block";
+    playMusic2.style.display = "block";
+  });
+  playMusic2.addEventListener("click", function () {
+    music.play();
+    playMusic2.style.display = "none";
+    pauseMusic2.style.display = "block";
+  });
+  pauseMusic2.addEventListener("click", function () {
+    music.pause();
+    pauseMusic2.style.display = "none";
+    playMusic2.style.display = "block";
   });
   var game = new Game();
   var bgAnimation = new bgObjs();
