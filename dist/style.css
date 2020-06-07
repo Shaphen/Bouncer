@@ -37,8 +37,12 @@ body{
 }
 
 .modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   background-color: #fefefe;
-  margin: 13% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 500px;
@@ -202,4 +206,30 @@ body{
 
 #pause2:hover {
   background: #aaa;
+}
+
+#linkedin-link {
+  position: absolute;
+  top: 25px;
+  left: 450px;
+  width: 27px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+#linkedin-link:hover {
+  opacity: 1;
+}
+
+#github-link {
+  position: absolute;
+  top: 25px;
+  left: 488px;
+  width: 27px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+#github-link:hover {
+  opacity: 1;
 }
