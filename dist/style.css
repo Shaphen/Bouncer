@@ -99,6 +99,7 @@ body{
 }
 
 .modal-content2 {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   background-color: #fefefe;
@@ -219,7 +220,7 @@ body{
 
 #linkedin-link2 {
   position: absolute;
-  left: 600px;
+  left: 450px;
   width: 27px;
   opacity: 0.5;
   transition: opacity 0.3s;
@@ -240,7 +241,7 @@ body{
 
 #github-link2 {
   position: absolute;
-  left: 638px;
+  left: 488px;
   width: 27px;
   opacity: 0.5;
   transition: opacity 0.3s;
