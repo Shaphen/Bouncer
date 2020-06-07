@@ -11,23 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
   let bgCtx = bgCanvas.getContext("2d")
   let span = document.getElementsByClassName("close-modal")[0];
   let span2 = document.getElementsByClassName("close-modal2")[0];
-
-  // music code
   const music = document.getElementById("music");
   const playMusic = document.getElementById("play");
   const pauseMusic = document.getElementById("pause");
-  console.log(music)
+  pauseMusic.style.display = "none";
 
   playMusic.addEventListener("click", function() {
-    console.log("test")
     music.play();
+    playMusic.style.display = "none";
+    pauseMusic.style.display = "block";
   });
-
   pauseMusic.addEventListener("click", function() {
-    console.log("other")
     music.pause();
+    pauseMusic.style.display = "none";
+    playMusic.style.display = "block";
   });
-  // end music code
 
   const game = new Game();
   const bgAnimation = new bgObjs();

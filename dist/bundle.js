@@ -536,21 +536,21 @@ document.addEventListener("DOMContentLoaded", function () {
   var bgCanvas = document.getElementById("bg-canvas");
   var bgCtx = bgCanvas.getContext("2d");
   var span = document.getElementsByClassName("close-modal")[0];
-  var span2 = document.getElementsByClassName("close-modal2")[0]; // music code
-
+  var span2 = document.getElementsByClassName("close-modal2")[0];
   var music = document.getElementById("music");
   var playMusic = document.getElementById("play");
   var pauseMusic = document.getElementById("pause");
-
+  pauseMusic.style.display = "none";
   playMusic.addEventListener("click", function () {
-    console.log("test");
     music.play();
+    playMusic.style.display = "none";
+    pauseMusic.style.display = "block";
   });
   pauseMusic.addEventListener("click", function () {
-    console.log("other");
     music.pause();
-  }); // end music code
-
+    pauseMusic.style.display = "none";
+    playMusic.style.display = "block";
+  });
   var game = new Game();
   var bgAnimation = new bgObjs();
   new GameView(bgAnimation, bgCtx).start();
