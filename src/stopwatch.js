@@ -5,7 +5,7 @@ let startTime;
 let updatedTime;
 let difference;
 let tInterval;
-let savedTime = 0;
+let savedTime;
 let paused = 0;
 let running = 0;
 
@@ -33,7 +33,7 @@ function pauseTimer() {
     savedTime = difference;
     paused = 1;
     running = 0;
-    timerDisplay.style.background = "#A90000";
+    timerDisplay.style.background = "#FF0000";
     timerDisplay.style.color = "#690000";
     timerDisplay.style.cursor = "pointer";
     startTimerButton.classList.remove('lighter');
@@ -72,11 +72,11 @@ function getShowTime() {
   let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((difference % (1000 * 60)) / 1000);
-  let milliseconds = Math.floor((difference % (1000 * 60)) / 100);
+  let milliseconds = Math.floor((difference % (10 * 100)) / 10);
 
   hours = (hours < 10) ? "0" + hours : hours;
   minutes = (minutes < 10) ? "0" + minutes : minutes;
   seconds = (seconds < 10) ? "0" + seconds : seconds;
-  milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
-  timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
+  milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+  timerDisplay.innerHTML = minutes + ':' + seconds + ':' + milliseconds;
 }
