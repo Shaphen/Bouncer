@@ -275,6 +275,7 @@ body{
   border-radius: 8px;
   color: #fff;
   background: #A90000;
+  cursor: default;
 }
 .reset {
   background: #550000;
