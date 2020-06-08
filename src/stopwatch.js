@@ -24,7 +24,6 @@ function resetTimer() {
   difference = 0;
   paused = 0;
   running = 0;
-  timerDisplay.innerHTML = '00:00:00';
 }
 
 function getShowTime() {
@@ -34,7 +33,6 @@ function getShowTime() {
   } else {
     difference = updatedTime - startTime;
   }
-  // var days = Math.floor(difference / (1000 * 60 * 60 * 24));
   let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((difference % (1000 * 60)) / 1000);
