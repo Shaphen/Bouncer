@@ -442,6 +442,7 @@ Game.prototype.reset = function (startAnimate, startCreate) {
   clearInterval(startAnimate);
   clearInterval(startCreate);
   modal2.style.display = "block";
+  resetTimer();
 };
 
 Game.prototype.step = function (startAnimate, startCreate) {
@@ -475,7 +476,8 @@ GameView.prototype.start = function start() {
 
   var animate = function animate() {
     if (document.hasFocus()) {
-      // this.game.step(startAnimate, startCreate);
+      _this.game.step(startAnimate, startCreate);
+
       _this.game.draw(_this.ctx);
 
       if (_this.game.player) {
@@ -575,11 +577,13 @@ document.addEventListener("DOMContentLoaded", function () {
   span.onclick = function () {
     modal.style.display = "none";
     new GameView(game, ctx).start();
+    startTimer();
   };
 
   span2.onclick = function () {
     modal2.style.display = "none";
     new GameView(game, ctx).start();
+    startTimer();
   };
 });
 

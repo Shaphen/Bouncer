@@ -8,7 +8,7 @@ GameView.prototype.start = function start() {
 
   const animate = () => {
     if (document.hasFocus()) { 
-      // this.game.step(startAnimate, startCreate);
+      this.game.step(startAnimate, startCreate);
       this.game.draw(this.ctx);
       if (this.game.player) {
         this.bindKeyHandlers();

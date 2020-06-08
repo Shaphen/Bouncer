@@ -52,10 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
   span.onclick = function () {
     modal.style.display = "none";
     new GameView(game, ctx).start();
+    startTimer();
   }
 
   span2.onclick = function () {
     modal2.style.display = "none";
     new GameView(game, ctx).start();
+    startTimer();
   }
 });

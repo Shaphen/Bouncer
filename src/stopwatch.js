@@ -15,33 +15,6 @@ function startTimer() {
     tInterval = setInterval(getShowTime, 1);
     paused = 0;
     running = 1;
-    timerDisplay.style.background = "#FF0000";
-    timerDisplay.style.cursor = "auto";
-    timerDisplay.style.color = "yellow";
-    startTimerButton.classList.add('lighter');
-    pauseTimerButton.classList.remove('lighter');
-    startTimerButton.style.cursor = "auto";
-    pauseTimerButton.style.cursor = "pointer";
-  }
-}
-
-function pauseTimer() {
-  if (!difference) {
-    // if timer never started, don't allow pause button to do anything
-  } else if (!paused) {
-    clearInterval(tInterval);
-    savedTime = difference;
-    paused = 1;
-    running = 0;
-    timerDisplay.style.background = "#FF0000";
-    timerDisplay.style.color = "#690000";
-    timerDisplay.style.cursor = "pointer";
-    startTimerButton.classList.remove('lighter');
-    pauseTimerButton.classList.add('lighter');
-    startTimerButton.style.cursor = "pointer";
-    pauseTimerButton.style.cursor = "auto";
-  } else {
-    startTimer();
   }
 }
 
@@ -51,14 +24,7 @@ function resetTimer() {
   difference = 0;
   paused = 0;
   running = 0;
-  timerDisplay.innerHTML = 'Start Studying!';
-  timerDisplay.style.background = "#A90000";
-  timerDisplay.style.color = "#fff";
-  timerDisplay.style.cursor = "pointer";
-  startTimerButton.classList.remove('lighter');
-  pauseTimerButton.classList.remove('lighter');
-  startTimerButton.style.cursor = "pointer";
-  pauseTimerButton.style.cursor = "auto";
+  timerDisplay.innerHTML = '00:00:00';
 }
 
 function getShowTime() {

@@ -95,6 +95,7 @@ Game.prototype.reset = function(startAnimate, startCreate) {
   clearInterval(startAnimate);
   clearInterval(startCreate);
   modal2.style.display = "block";
+  resetTimer();
 }
 
 Game.prototype.step = function(startAnimate, startCreate) {
