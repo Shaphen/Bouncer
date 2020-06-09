@@ -8,11 +8,11 @@
 
 ## Background
 ![Dodge](https://github.com/Shaphen/Dodge/blob/master/dist/gifs/dodge.gif)
-Dodge is a simple and easy to play platforming video game where the player tries to avoid the falling objects for as long as possible. This idea derived from the curiosity of challenging myself to go outside of my comfort zone and attempt to create a game. I further challenged myself by only using Vanilla JavaScript, HTML, CSS, and the keymaster library.
+Dodge is a simple and easy to play platforming video game where the player tries to avoid the falling objects for as long as possible. This idea came from the desire to challenge myself to go outside of my comfort zone and try making a game. I only allowed myself to use Vanilla JavaScript, HTML, CSS, and the keymaster library.
 
 ## Technologies
 ### Collision Detection
-Collision detection logic constantly checks with every cycle of the game loop if the `player` object is overlapping with a `platform` object and ends the game if this condition is met. This was a fun feature to figure out by understanding the difference in measurements based on which side both objects are overlapping.
+Collision detection logic constantly checks with every cycle of the game loop if the `player` object is overlapping with a `platform` object and ends the game if this condition is met. This was an interesting feature to figure out by understanding the difference in measurements based on which side both objects are overlapping.
 
 ```javascript
 Game.prototype.checkCollisions = function(startAnimate, startCreate) {
@@ -40,7 +40,7 @@ GameObject.prototype.isCollidedWith = function(otherObj) {
 
 ### Screen Wrapping
 ![Dodge-wrap](https://github.com/Shaphen/Dodge/blob/master/dist/gifs/dodge_wrap.gif)
-The player is able to seemlessly wrap from one side of the screen to the other instantly when breaking the game boundries. This feature was created to help players have an even bigger advantage in-game and keep the difficulty balanced.
+The player is able to seemlessly wrap from one side of the screen to the other when breaking the game boundaries. This feature was created to help players have an even bigger advantage in-game and keep the difficulty balanced.
 
 ```javascript
 Game.prototype.wrap = function(pos) {
