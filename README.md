@@ -8,7 +8,7 @@
 
 ## Background
 ![Dodge](https://github.com/Shaphen/Dodge/blob/master/dist/gifs/dodge.gif)
-Dodge is a simple and easy to play platforming video game where the player tries to avoid the falling objects for as long as possible. This idea came from the desire to challenge myself to go outside of my comfort zone and try making a game. I only allowed myself to use Vanilla JavaScript, HTML, CSS, and the keymaster library.
+Dodge is a simple and easy to play platforming video game where the player tries to avoid the falling objects for as long as possible. This idea came from the desire to challenge myself to go outside of my comfort zone and try making a game. I only allowed myself to use vanilla JavaScript, HTML, CSS, and the keymaster library.
 
 ## Technologies
 ### Collision Detection
