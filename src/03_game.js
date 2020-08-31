@@ -66,13 +66,6 @@ Game.prototype.wrap = function(pos) {
   return pos;
 }
 
-// Game.prototype.reverse = function(pos, vel) {
-//   if (pos[0] > (this.DIM_X - 200) || pos[0] < 0) {
-//     vel = this.otherVel(vel)
-//   }
-//   return vel;
-// }
-
 Game.prototype.allObjects = function() {
   return [].concat(this.platforms, this.player);
 }

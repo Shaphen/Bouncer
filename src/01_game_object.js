@@ -45,19 +45,6 @@ GameObject.prototype.drawPlayer = function (ctx) {
   ctx.fill();
 };
 
-// GameObject.prototype.drawCir = function(ctx) {
-//   ctx.beginPath();
-//   ctx.fillStyle = this.color;
-  // ctx.strokeStyle = "blue";
-  // ctx.lineWidth = 4;
-  // ctx.shadowColor = "blue";
-  // ctx.shadowBlur = 10;
-
-//   ctx.arc(this.pos[0], this.pos[1], this.rad, 0, 2*Math.PI, false);
-
-//   ctx.stroke();
-// };
-
 GameObject.prototype.move = function() {
   let pos = [];
   pos.push(this.pos[0] + this.vel[0]);
